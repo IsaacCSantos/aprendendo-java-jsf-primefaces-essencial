@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+>
+	<persistence-unit name="AlgaWorksPU">
+		<class>com.algaworks.erp.model.Empresa</class>
+		<class>com.algaworks.erp.model.RamoAtividade</class>
+		<class>com.algaworks.erp.model.TipoEmpresa</class>
+		<properties>
+			<!-- Url de conexao do banco de dados -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cursojsfprimefaces" />
+			<!--Usuario de conexao do banco de dados-->
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<!--Senha do usuario de conexao do banco de dados-->
+			<property name="javax.persistence.jdbc.password" value="masterkey" />
+			<!--Driver do SGBD para conectar ao banco-->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			
+			<!--Dialeto é responsavel por traduzir o mapeamento do hibernate para a linguagem SQL nativa do SGBD-->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+			<!--Cria o banco de dados e encerra no final da sesao-->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!--Imprimir as consultas no log-->
+			<property name="hibernate.show_sql" value="true" />
+			<!--Formatar a impressão das consultas no Log-->
+			<property name="hibernate.format_sql" value="true" />
+			
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+      		<property name="javax.persistence.schema-generation.create-source" value="metadata" />
+      		<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/dados-iniciais.sql"/>
+			
+		</properties>
+	</persistence-unit>
+</persistence>
